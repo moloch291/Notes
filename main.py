@@ -1,9 +1,8 @@
-# main functions will be writing and reading alongside creating note saving and possibly notification functions
 import notes
 
 
 def main():
-    notes.pyary()
+    notes.notes()
 
 
 if __name__ == '__main__':
