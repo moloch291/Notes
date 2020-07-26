@@ -20,12 +20,26 @@ def create_new_note():
 
 def read_existing_notes():
     os.system('clear')
-    functions.show_readable()
+    path = functions.get_path()
+    notes_list = functions.get_notes(path)
+    print(notes_list)
     choice = functions.get_choice()
     os.system('clear')
-    note = functions.get_the_note(choice)
+    note = functions.get_the_note(choice, notes_list)
     reading_options(note)
     functions.reading(note)
+    functions.save_and_close_note(note)
+
+
+def reading_options(note):
+    reading_option = input("Type 'edit' or 'exit'!")
+    if reading_option == "exit":
+        functions.save_and_close_note(note)
+        read_existing_notes()
+    elif reading_option == "edit":
+        message = input("Edit note:")
+        note = functions.write_note(note, message)
+        functions.save_and_close_note(note)
 
 
 def options_menu():
@@ -44,17 +58,6 @@ def options_menu():
         os.system('clear')
         print("Invalid input! Please type the number of an option and press ENTER!")
         options_menu()
-
-
-def reading_options(note):
-    reading_option = input("Type 'edit' or 'exit'!")
-    if reading_option == "exit":
-        functions.save_and_close_note(note)
-        read_existing_notes()
-    elif reading_option == "edit":
-        message = input("Edit note:")
-        note = functions.write_note(note, message)
-        functions.save_and_close_note(note)
 
 
 def notes():
