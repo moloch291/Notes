@@ -28,3 +28,16 @@ def write_note(note, message):
 
 def save_and_close_note(note):
     note.close()
+
+
+def show_readable():
+
+
+def get_choice():
+    choice = input("Type in the name of the note you want to read!")
+    return choice
+
+def get_the_note(choice):
+
+
+def reading(note):

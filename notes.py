@@ -1,6 +1,5 @@
 import functions
 import os
-import time
 
 
 def create_new_note():
@@ -8,7 +7,6 @@ def create_new_note():
     file_name = functions.name_file()
     note_name = functions.generate_note_name(current_time, file_name)
     os.system('clear')
-    time.sleep(1)
     note = functions.create_note(note_name)
     print(file_name + ":")
     message = input("New note (type 'cancel' to exit): ")
@@ -21,9 +19,13 @@ def create_new_note():
 
 
 def read_existing_notes():
-    print("Under development")
-    time.sleep(1)
-    options_menu()
+    os.system('clear')
+    functions.show_readable()
+    choice = functions.get_choice()
+    os.system('clear')
+    note = functions.get_the_note(choice)
+    reading_options(note)
+    functions.reading(note)
 
 
 def options_menu():
@@ -42,6 +44,17 @@ def options_menu():
         os.system('clear')
         print("Invalid input! Please type the number of an option and press ENTER!")
         options_menu()
+
+
+def reading_options(note):
+    reading_option = input("Type 'edit' or 'exit'!")
+    if reading_option == "exit":
+        functions.save_and_close_note(note)
+        read_existing_notes()
+    elif reading_option == "edit":
+        message = input("Edit note:")
+        note = functions.write_note(note, message)
+        functions.save_and_close_note(note)
 
 
 def notes():
