@@ -1,5 +1,6 @@
 import datetime
 import os
+import notes
 
 
 def get_current_time():
@@ -42,7 +43,9 @@ def get_notes(path):
 
 
 def get_choice():
-    choice = input("Type in the name of the note you want to read!\n")
+    choice = input("Type in the name of the note you want to read or type or 'exit'!\n")
+    if choice == "exit":
+        notes.options_menu()
     return choice
 
 

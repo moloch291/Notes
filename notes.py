@@ -28,18 +28,20 @@ def read_existing_notes():
     note = functions.get_the_note(choice, notes_list)
     page = functions.open_note(path, note)
     functions.reading(page)
+    reading_options(page)
     functions.save_and_close_note(page)
 
 
-def reading_options(note):
+def reading_options(page):
     reading_option = input("Type 'edit' or 'exit'!")
     if reading_option == "exit":
-        functions.save_and_close_note(note)
+        functions.save_and_close_note(page)
         read_existing_notes()
     elif reading_option == "edit":
         message = input("Edit note:")
-        note = functions.write_note(note, message)
+        note = functions.write_note(page, message)
         functions.save_and_close_note(note)
+        options_menu()
 
 
 def options_menu():
