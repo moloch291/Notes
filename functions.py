@@ -33,7 +33,7 @@ def save_and_close_note(note):
 
 
 def get_path():
-    path = input("Enter a path to a directory where you want to save your pyary notes!\n")
+    path = input("Enter a path to a directory where the note is!\n")
     return path
 
 
