@@ -46,17 +46,14 @@ def get_choice():
     return choice
 
 
-def get_the_note(choice, notes):
-    for note in notes:
-        if choice[0, 6] == note[0, 6]:
-            return note
-        else:
-            print("Invalid note name!")
-            choice = get_choice()
-            note = get_the_note(choice, notes)
+def get_the_note(choice, notes_list):
+    for note in notes_list:
+        if choice == note:
             return note
 
 
 def reading(note):
-    note = open(note, "r+")
+    with open(note, "r+") as note:
+        lines = note.readlines()
+        print(lines)
     return note
