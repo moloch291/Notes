@@ -33,7 +33,7 @@ def save_and_close_note(note):
 
 
 def get_path():
-    path = input("Enter a path to a directory where you want to save your pyary notes!")
+    path = input("Enter a path to a directory where you want to save your pyary notes!\n")
     return path
 
 
@@ -51,7 +51,7 @@ def get_choice():
 
 def get_the_note(choice, notes_list):
     for note in notes_list:
-        if choice == note:
+        if choice in note:
             return note
 
 

@@ -27,6 +27,7 @@ def read_existing_notes():
     choice = functions.get_choice()
     note = functions.get_the_note(choice, notes_list)
     page = functions.open_note(path, note)
+    os.system('clear')
     functions.reading(page)
     reading_options(page)
     functions.save_and_close_note(page)
