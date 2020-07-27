@@ -13,7 +13,7 @@ def name_file():
 
 
 def generate_note_name(current_time, file_name):
-    note_name = "'" + file_name + "' " + current_time + ".txt"
+    note_name = "'" + file_name + "' " + current_time
     return note_name
 
 
@@ -42,7 +42,7 @@ def get_notes(path):
 
 
 def get_choice():
-    choice = input("Type in the name of the note you want to read!")
+    choice = input("Type in the name of the note you want to read!\n")
     return choice
 
 
@@ -52,8 +52,12 @@ def get_the_note(choice, notes_list):
             return note
 
 
-def reading(note):
-    with open(note, "r+") as note:
-        lines = note.readlines()
-        print(lines)
-    return note
+def open_note(path, note):
+    page = open(path + note, "r+")
+    return page
+
+
+def reading(page):
+    lines = page.readlines()
+    print(lines)
+    return page

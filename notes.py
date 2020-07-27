@@ -22,13 +22,13 @@ def read_existing_notes():
     os.system('clear')
     path = functions.get_path()
     notes_list = functions.get_notes(path)
-    print(notes_list)
+    for note in notes_list:
+        print(note)
     choice = functions.get_choice()
-    os.system('clear')
     note = functions.get_the_note(choice, notes_list)
-    reading_options(note)
-    functions.reading(note)
-    functions.save_and_close_note(note)
+    page = functions.open_note(path, note)
+    functions.reading(page)
+    functions.save_and_close_note(page)
 
 
 def reading_options(note):
