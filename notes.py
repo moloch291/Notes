@@ -33,12 +33,12 @@ def read_existing_notes():
 
 
 def reading_options(page):
-    reading_option = input("Type 'edit' or 'exit'!")
+    reading_option = input("Type 'edit' or 'exit'! ")
     if reading_option == "exit":
         functions.save_and_close_note(page)
         read_existing_notes()
     elif reading_option == "edit":
-        message = input("Edit note:")
+        message = input("Add to note: ") + "\n" + functions.get_current_time()
         note = functions.write_note(page, message)
         functions.save_and_close_note(note)
         options_menu()

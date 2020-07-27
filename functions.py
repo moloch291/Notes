@@ -33,7 +33,7 @@ def save_and_close_note(note):
 
 
 def get_path():
-    path = "/home/moloch/IdeaProjects/pyary/"
+    path = input("Enter a path to a directory where you want to save your pyary notes!")
     return path
 
 
@@ -43,7 +43,7 @@ def get_notes(path):
 
 
 def get_choice():
-    choice = input("Type in the name of the note you want to read or type or 'exit'!\n")
+    choice = input("Type in the name of the note you want to read or type 'exit' and press ENTER!\n")
     if choice == "exit":
         notes.options_menu()
     return choice
